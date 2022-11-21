@@ -1,18 +1,16 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <profile-component />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import ProfileComponent from "../components/ProfileComponent.vue";
 
 export default Vue.extend({
   name: "HomeView",
+
   components: {
-    HelloWorld,
+    ProfileComponent,
   },
 });
 </script>
