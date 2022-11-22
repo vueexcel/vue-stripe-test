@@ -1,8 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { auth, addNewUser, getUserByUid } from '../firebase'
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from "firebase/auth";
 
 Vue.use(Vuex);
 
@@ -38,10 +37,11 @@ export default new Vuex.Store({
     },
 
     async loginUser({ commit } ,payload){
+      await setPersistence(auth, browserLocalPersistence);
       const userCredential = await signInWithEmailAndPassword(auth, payload.email, payload.password);
       const result = await getUserByUid(userCredential.user.uid);
       commit("USER_DETAILS", result);
-      return result;
+      return result;  
     }
   },
   modules: {},

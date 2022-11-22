@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDoc, getDocs, doc, setDoc } from 'firebase/firestore/lite';
-import { getAuth } from "firebase/auth";
+import { initializeAuth, browserLocalPersistence } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBlyk-_VCzU4tst5PjDci67zD01PZ1FvNM",
@@ -13,9 +13,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-export const auth = getAuth(app);
-
-
+export const auth = initializeAuth(app);
 
 // db operations
 export const addNewUser = async (uid: string, payload: Object) => {

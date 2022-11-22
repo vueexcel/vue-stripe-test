@@ -5,7 +5,6 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 
 import { StripePlugin } from '@vue-stripe/vue-stripe';
-
 const options = {
   pk: 'pk_test_51KTIuuSBg4NxaH6WKK6SQxDX82t0kZfzOIDLVrd0Yhhg2zoNoOXH6AzWjf215aM0vuOejcbb3Mcr7gBO0knxpcln00uCE4ZIZc',
 };
